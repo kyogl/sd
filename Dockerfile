@@ -14,7 +14,7 @@ RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
 WORKDIR /app/stable-diffusion-webui
 
 RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/xiele/chilloutmix/resolve/main/Stable-diffusion/chilloutmix_NiPrunedFp32Fix.safetensors'
-RUN wget -O models/Stable-diffusion/model.ckpt 'https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt'
+# RUN wget -O models/Stable-diffusion/model.ckpt 'https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt'
 RUN echo 2
 ADD prepare.py .
 RUN python prepare.py --skip-torch-cuda-test --xformers --reinstall-torch --reinstall-xformers
