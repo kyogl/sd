@@ -45,9 +45,6 @@ from modules import modelloader
 from modules.shared import cmd_opts
 import modules.hypernetworks.hypernetwork
 
-from extensions-builtin.Lora.lora import assign_lora_names_to_compvis_modules
-from extensions-builtin.Lora.scripts.lora_script import before_ui
-
 
 if cmd_opts.server_name:
     server_name = cmd_opts.server_name
@@ -188,11 +185,15 @@ def api_only():
     app.add_middleware(GZipMiddleware, minimum_size=1000)
     api = create_api(app)
 
-    before_ui() # 1
-
     modules.script_callbacks.app_started_callback(None, app)
 
-    assign_lora_names_to_compvis_modules(shared.sd_model) # 2
+    ui_extra_networks.intialize()
+    ui_extra_networks.register_page(ui_extra_networks_textual_inversion.ExtraNetworksPageTextualInversion())
+    ui_extra_networks.register_page(ui_extra_networks_hypernets.ExtraNetworksPageHypernetworks())
+    ui_extra_networks.register_page(ui_extra_networks_checkpoints.ExtraNetworksPageCheckpoints())
+
+    extra_networks.initialize()
+    extra_networks.register_extra_network(extra_networks_hypernet.ExtraNetworkHypernet())
 
     api.launch(server_name="0.0.0.0" if cmd_opts.listen else "127.0.0.1", port=cmd_opts.port if cmd_opts.port else 7861)
 
