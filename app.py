@@ -20,6 +20,7 @@ def register_model():
 def init():
     global model
     import modules.sd_models
+    modules.script_callbacks.before_ui_callback()
     modules.sd_models.list_models()
     modules.sd_models.list_models = noop
     model = modules.sd_models.load_model()
