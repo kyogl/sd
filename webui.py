@@ -179,7 +179,6 @@ def wait_on_server(demo=None):
 
 def api_only():
     initialize()
-    modules.script_callbacks.before_ui_callback()
 
     app = FastAPI()
     setup_cors(app)
