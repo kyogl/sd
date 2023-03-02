@@ -14,6 +14,9 @@ RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
 WORKDIR /app/stable-diffusion-webui
 
 RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/xiele/chilloutmix/resolve/main/Stable-diffusion/chilloutmix_NiPrunedFp32Fix.safetensors'
+RUN wget -O models/Lora/Korean-doll-likeness.safetensors 'https://huggingface.co/AnonPerson/ChilloutMix/resolve/main/Korean-doll-likeness.safetensors'
+RUN wget -O models/Lora/Japanese-doll-likeness.safetensors 'https://huggingface.co/AnonPerson/ChilloutMix/resolve/main/Japanese-doll-likeness.safetensors'
+RUN wget -O models/Lora/Taiwan-doll-likeness.safetensors 'https://huggingface.co/AnonPerson/ChilloutMix/resolve/main/Taiwan-doll-likeness.safetensors'
 # RUN wget -O models/Stable-diffusion/model.ckpt 'https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt'
 RUN echo 2
 ADD prepare.py .
