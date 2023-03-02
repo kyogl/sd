@@ -15,8 +15,9 @@ WORKDIR /app/stable-diffusion-webui
 
 RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/Inzamam567/useless_Chillout_mix/resolve/main/chilloutmix_NiPrunedFp32Fix.safetensors'
 RUN mkdir -p models/Lora
-RUN wget -O models/Lora/koreanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/koreanDollLikeness_v10.safetensors'
+RUN wget -O models/Lora/koreanDollLikeness_v15.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/koreanDollLikeness_v15.safetensors'
 RUN wget -O models/Lora/taiwanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/taiwanDollLikeness_v10.safetensors'
+RUN wget -O models/Lora/arknightsTexasThe_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/arknightsTexasThe_v10.safetensors'
 # RUN wget -O models/Stable-diffusion/model.ckpt 'https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt'
 RUN echo 2
 ADD prepare.py .
