@@ -14,7 +14,7 @@ RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
     git checkout 0cc0ee1bcb4c24a8c9715f66cede06601bfc00c8
 WORKDIR /app/stable-diffusion-webui
 
-RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/xiele/chilloutmix/resolve/main/Stable-diffusion/chilloutmix_NiPrunedFp32Fix.safetensors'
+RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/Inzamam567/useless_Chillout_mix/resolve/main/Stable-diffusion/chilloutmix_NiPrunedFp32Fix.safetensors'
 RUN mkdir -p models/Lora
 RUN wget -O models/Lora/koreanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/koreanDollLikeness_v10.safetensors'
 RUN wget -O models/Lora/taiwanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/taiwanDollLikeness_v10.safetensors'
