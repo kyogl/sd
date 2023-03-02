@@ -8,11 +8,12 @@ RUN ln -s /usr/bin/python3.10 /usr/bin/python
 RUN useradd -ms /bin/bash banana
 WORKDIR /app
 
-RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
+RUN git clone https://github.com/camenduru/stable-diffusion-webui.git && \
     cd stable-diffusion-webui && \
     git checkout 0cc0ee1bcb4c24a8c9715f66cede06601bfc00c8
 WORKDIR /app/stable-diffusion-webui
 
+RUN wget -O /content/stable-diffusion-webui/scripts/run_n_times.py "https://raw.githubusercontent.com/camenduru/stable-diffusion-webui-scripts/main/run_n_times.py"
 RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/Inzamam567/useless_Chillout_mix/resolve/main/chilloutmix_NiPrunedFp32Fix.safetensors'
 RUN mkdir -p models/Lora/Korean_Doll_Likeness
 RUN wget -O models/Lora/Korean_Doll_Likeness/koreanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/koreanDollLikeness_v10.safetensors'
