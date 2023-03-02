@@ -27,6 +27,8 @@ RUN python download.py --use-cpu=all
 
 RUN pip install dill
 
+ADD webui.py webui.py
+
 RUN mkdir -p extensions/banana/scripts
 ADD script.py extensions/banana/scripts/banana.py
 ADD app.py app.py
