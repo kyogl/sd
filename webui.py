@@ -45,6 +45,9 @@ from modules import modelloader
 from modules.shared import cmd_opts
 import modules.hypernetworks.hypernetwork
 
+from extensions-builtin.Lora.scripts.lora import assign_lora_names_to_compvis_modules
+from extensions-builtin.Lora.scripts.lora_script import before_ui
+
 
 if cmd_opts.server_name:
     server_name = cmd_opts.server_name
@@ -179,17 +182,17 @@ def wait_on_server(demo=None):
 
 def api_only():
     initialize()
-    
-    modules.script_callbacks.before_ui_callback()
 
     app = FastAPI()
     setup_cors(app)
     app.add_middleware(GZipMiddleware, minimum_size=1000)
     api = create_api(app)
 
+    before_ui() # 1
+
     modules.script_callbacks.app_started_callback(None, app)
 
-    modules.script_callbacks.model_loaded_callback(shared.sd_model)
+    assign_lora_names_to_compvis_modules(shared.sd_model) # 2
 
     api.launch(server_name="0.0.0.0" if cmd_opts.listen else "127.0.0.1", port=cmd_opts.port if cmd_opts.port else 7861)
 
