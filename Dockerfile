@@ -10,14 +10,14 @@ WORKDIR /app
 
 RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
     cd stable-diffusion-webui && \
-    # git checkout 3e0f9a75438fa815429b5530261bcf7d80f3f101
-    # git checkout 0cc0ee1bcb4c24a8c9715f66cede06601bfc00c8
+    git checkout 3e0f9a75438fa815429b5530261bcf7d80f3f101
 WORKDIR /app/stable-diffusion-webui
 
 RUN wget -O models/Stable-diffusion/model.safetensors 'https://huggingface.co/Inzamam567/useless_Chillout_mix/resolve/main/chilloutmix_NiPrunedFp32Fix.safetensors'
-RUN mkdir -p models/Lora
-RUN wget -O models/Lora/koreanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/koreanDollLikeness_v10.safetensors'
-RUN wget -O models/Lora/taiwanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/taiwanDollLikeness_v10.safetensors'
+RUN mkdir -p models/Lora/Korean_Doll_Likeness
+RUN wget -O models/Lora/Korean_Doll_Likeness/koreanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/koreanDollLikeness_v10.safetensors'
+RUN mkdir -p models/Lora/Taiwan_Doll_Likeness
+RUN wget -O models/Lora/Taiwan_Doll_Likeness/taiwanDollLikeness_v10.safetensors 'https://huggingface.co/nsmaomao/azoila/resolve/main/taiwanDollLikeness_v10.safetensors'
 # RUN wget -O models/Stable-diffusion/model.ckpt 'https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt'
 RUN echo 2
 ADD prepare.py .
