@@ -35,4 +35,4 @@ ADD script.py extensions/banana/scripts/banana.py
 ADD app.py app.py
 ADD server.py server.py
 
-CMD ["python", "server.py", "--xformers", "--disable-safe-unpickle", "--lowram", "--no-half", "--api", "--no-hashing", "--listen", "--port", "8000"]
+CMD ["python", "server.py", "--xformers", "--disable-safe-unpickle", "--lowram", "--no-half", "--no-hashing", "--listen", "--port", "8000"]
