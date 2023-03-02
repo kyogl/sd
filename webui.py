@@ -45,7 +45,7 @@ from modules import modelloader
 from modules.shared import cmd_opts
 import modules.hypernetworks.hypernetwork
 
-from extensions-builtin.Lora.scripts.lora import assign_lora_names_to_compvis_modules
+from extensions-builtin.Lora.lora import assign_lora_names_to_compvis_modules
 from extensions-builtin.Lora.scripts.lora_script import before_ui
 
 
