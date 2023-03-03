@@ -191,12 +191,6 @@ def api_only():
     modules.script_callbacks.model_loaded_callback(shared.sd_model)
 
     modelloader.load_upscalers()
-    shared.reload_hypernetworks()
-
-    ui_extra_networks.intialize()
-    ui_extra_networks.register_page(ui_extra_networks_textual_inversion.ExtraNetworksPageTextualInversion())
-    ui_extra_networks.register_page(ui_extra_networks_hypernets.ExtraNetworksPageHypernetworks())
-    ui_extra_networks.register_page(ui_extra_networks_checkpoints.ExtraNetworksPageCheckpoints())
     
     extra_networks.initialize()
     extra_networks.register_extra_network(extra_networks_hypernet.ExtraNetworkHypernet())
