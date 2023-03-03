@@ -187,13 +187,8 @@ def api_only():
 
     modules.script_callbacks.before_ui_callback()
     modules.script_callbacks.app_started_callback(None, app)
-    modules.script_callbacks.script_unloaded_callback()
+    # modules.script_callbacks.script_unloaded_callback()
     modules.script_callbacks.model_loaded_callback(shared.sd_model)
-
-    modelloader.load_upscalers()
-    
-    extra_networks.initialize()
-    extra_networks.register_extra_network(extra_networks_hypernet.ExtraNetworkHypernet())
 
     api.launch(server_name="0.0.0.0" if cmd_opts.listen else "127.0.0.1", port=cmd_opts.port if cmd_opts.port else 7861)
 
